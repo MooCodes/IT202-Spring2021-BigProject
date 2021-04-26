@@ -5,13 +5,137 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ali Baig Big Project IT202</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+        }
+        #home-content {
+            display: block;
+        }
+        #about-content {
+            display: none;
+        }
+        #play-content {
+            display: none;
+        }
+        #feedback-content {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <button class="mdc-button foo-button">
-        <div class="mdc-button__ripple"></div>
-        <span class="mdc-button__label">Button</span>
-    </button>
+    <!-- navigation bar -->
+    <div class="mdc-tab-bar" role="tablist">
+        <div class="mdc-tab-scroller">
+            <div class="mdc-tab-scroller__scroll-area">
+                <div class="mdc-tab-scroller__scroll-content">
+                    <button id="home" class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
+                        <span class="mdc-tab__content">
+                            <span class="mdc-tab__text-label">Home</span>
+                        </span>
+                        <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                        </span>
+                        <span class="mdc-tab__ripple"></span>
+                    </button>
+                    <button id="about" class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
+                        <span class="mdc-tab__content">
+                            <span class="mdc-tab__text-label">About Us</span>
+                        </span>
+                        <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                        </span>
+                        <span class="mdc-tab__ripple"></span>
+                    </button>
+                    <button id="play" class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
+                        <span class="mdc-tab__content">
+                            <span class="mdc-tab__text-label">Play Game</span>
+                        </span>
+                        <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                        </span>
+                        <span class="mdc-tab__ripple"></span>
+                    </button>
+                    <button id="feedback" class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
+                        <span class="mdc-tab__content">
+                            <span class="mdc-tab__text-label">Give Us Your Feedback</span>
+                        </span>
+                        <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                        </span>
+                        <span class="mdc-tab__ripple"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- content -->
+    <div id="home-content">
+        yoyo
+    </div>
+    <div id="about-content">
+        about us
+    </div>
+    <div id="play-content">
+        play game
+    </div>
+    <div id="feedback-content">
+        give feedback
+    </div>
+
+    <!-- code to handle changing the screens -->
+    <script>
+        // get ref to all the screens
+        const homeScreen = document.querySelector('#home-content')
+        const aboutScreen = document.querySelector('#about-content')
+        const playScreen = document.querySelector('#play-content')
+        const feedbackScreen = document.querySelector("#feedback-content")
+
+        let disableScreens = () => {
+            homeScreen.style.display = "none"
+            aboutScreen.style.display = "none"
+            playScreen.style.display = "none"
+            feedbackScreen.style.display = "none"
+        }
+        
+        // event listeners for the nav tabs
+        const homeTab = document.querySelector('#home')
+        const aboutTab = document.querySelector('#about')
+        const playTab = document.querySelector('#play')
+        const feedbackTab = document.querySelector('#feedback')
+
+        homeTab.addEventListener("click", () => {
+            console.log('clicked home tab')
+            // disable all screens
+            disableScreens()
+            // show the correct screen
+            homeScreen.style.display = "block"
+        })
+
+        aboutTab.addEventListener("click", () => {
+            // disable all screens
+            disableScreens()
+            // show the correct screen
+            aboutScreen.style.display = "block"
+        })
+
+        playTab.addEventListener("click", () => {
+            // disable all screens
+            disableScreens()
+            // show the correct screen
+            playScreen.style.display = "block"
+        })
+
+        feedbackTab.addEventListener("click", () => {
+            // disable all screens
+            disableScreens()
+            // show the correct screen
+            feedbackScreen.style.display = "block"
+        })
+    </script>
 </body>
 </html>
