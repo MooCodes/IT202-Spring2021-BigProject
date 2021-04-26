@@ -11,18 +11,35 @@
     <style>
         body {
             margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
         #home-content {
-            display: block;
+            display: none;
         }
         #about-content {
             display: none;
         }
-        #play-content {
-            display: none;
+        #compare-content {
+            display: block;
         }
         #feedback-content {
             display: none;
+        }
+        h1 {
+            text-align: center;
+            color: #6200EE
+        }
+        h2 {
+            text-align: center;
+            color: #6200EE
+        }
+        #compare-button {
+            width: 100%;
+        }
+        .two-inputs {
+            display: block;
+            margin: 0 auto;
+            width: 250px;
         }
     </style>
 </head>
@@ -36,35 +53,23 @@
                         <span class="mdc-tab__content">
                             <span class="mdc-tab__text-label">Home</span>
                         </span>
-                        <span class="mdc-tab-indicator mdc-tab-indicator--active">
-                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-                        </span>
                         <span class="mdc-tab__ripple"></span>
                     </button>
                     <button id="about" class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
                         <span class="mdc-tab__content">
                             <span class="mdc-tab__text-label">About Us</span>
                         </span>
-                        <span class="mdc-tab-indicator mdc-tab-indicator--active">
-                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-                        </span>
                         <span class="mdc-tab__ripple"></span>
                     </button>
-                    <button id="play" class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
+                    <button id="compare" class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
                         <span class="mdc-tab__content">
-                            <span class="mdc-tab__text-label">Play Game</span>
-                        </span>
-                        <span class="mdc-tab-indicator mdc-tab-indicator--active">
-                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                            <span class="mdc-tab__text-label">compare Game</span>
                         </span>
                         <span class="mdc-tab__ripple"></span>
                     </button>
                     <button id="feedback" class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
                         <span class="mdc-tab__content">
                             <span class="mdc-tab__text-label">Give Us Your Feedback</span>
-                        </span>
-                        <span class="mdc-tab-indicator mdc-tab-indicator--active">
-                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
                         </span>
                         <span class="mdc-tab__ripple"></span>
                     </button>
@@ -75,37 +80,89 @@
 
     <!-- content -->
     <div id="home-content">
-        yoyo
+        <h1>Welcome To Compare-Players</h1>
     </div>
     <div id="about-content">
-        about us
+        <h1>About Us</h1>
     </div>
-    <div id="play-content">
-        play game
+    <div id="compare-content">
+        <h1>Compare NBA Players</h1>
+    
+        <div class="mdc-layout-grid">
+            <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell">
+                    <h2>Search First NBA Player</h2>
+                    <div class="two-inputs">
+                        <label id="left-player-first" class="mdc-text-field mdc-text-field--filled">
+                            <span class="mdc-text-field__ripple"></span>
+                            <span class="mdc-floating-label" id="my-label-id">First Name</span>
+                            <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+                            <span class="mdc-line-ripple"></span>
+                        </label>
+                        <label id="left-player-last" class="mdc-text-field mdc-text-field--filled">
+                            <span class="mdc-text-field__ripple"></span>
+                            <span class="mdc-floating-label" id="my-label-id">Last Name</span>
+                            <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+                            <span class="mdc-line-ripple"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="mdc-layout-grid__cell">
+                    <button id="compare-button" class="mdc-button mdc-button--raised">
+                        <span class="mdc-button__label">Compare</span>
+                    </button>
+
+                    <!--player comparison stats-->
+                </div>
+                <div class="mdc-layout-grid__cell">
+                    <h2>Search Second NBA Player</h2>
+                    <div class="two-inputs">
+                        <label id="right-player-first" class="mdc-text-field mdc-text-field--filled">
+                            <span class="mdc-text-field__ripple"></span>
+                            <span class="mdc-floating-label" id="my-label-id">First Name</span>
+                            <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+                            <span class="mdc-line-ripple"></span>
+                        </label>
+                        <label id="right-player-last" class="mdc-text-field mdc-text-field--filled">
+                            <span class="mdc-text-field__ripple"></span>
+                            <span class="mdc-floating-label" id="my-label-id">Last Name</span>
+                            <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+                            <span class="mdc-line-ripple"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div id="feedback-content">
-        give feedback
+        <h1>Your Feedback</h1>
     </div>
 
     <!-- code to handle changing the screens -->
     <script>
+        // need this for javascript to work on material components
+        mdc.textField.MDCTextField.attachTo(document.querySelector('#left-player-first'))
+        mdc.textField.MDCTextField.attachTo(document.querySelector('#left-player-last'))
+        mdc.textField.MDCTextField.attachTo(document.querySelector('#right-player-first'))
+        mdc.textField.MDCTextField.attachTo(document.querySelector('#right-player-last'))
+
         // get ref to all the screens
         const homeScreen = document.querySelector('#home-content')
         const aboutScreen = document.querySelector('#about-content')
-        const playScreen = document.querySelector('#play-content')
+        const compareScreen = document.querySelector('#compare-content')
         const feedbackScreen = document.querySelector("#feedback-content")
 
         let disableScreens = () => {
             homeScreen.style.display = "none"
             aboutScreen.style.display = "none"
-            playScreen.style.display = "none"
+            compareScreen.style.display = "none"
             feedbackScreen.style.display = "none"
         }
         
         // event listeners for the nav tabs
         const homeTab = document.querySelector('#home')
         const aboutTab = document.querySelector('#about')
-        const playTab = document.querySelector('#play')
+        const compareTab = document.querySelector('#compare')
         const feedbackTab = document.querySelector('#feedback')
 
         homeTab.addEventListener("click", () => {
@@ -123,11 +180,11 @@
             aboutScreen.style.display = "block"
         })
 
-        playTab.addEventListener("click", () => {
+        compareTab.addEventListener("click", () => {
             // disable all screens
             disableScreens()
             // show the correct screen
-            playScreen.style.display = "block"
+            compareScreen.style.display = "block"
         })
 
         feedbackTab.addEventListener("click", () => {
