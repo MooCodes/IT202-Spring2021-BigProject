@@ -61,6 +61,14 @@
             font-weight: bold;
             margin: 5px;
         }
+        #map {
+            margin: 0 auto;
+            height: 300px;
+            width: 25%;
+        }
+        p {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -89,7 +97,7 @@
                     </button>
                     <button id="feedback" class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
                         <span class="mdc-tab__content">
-                            <span class="mdc-tab__text-label">Give Us Your Feedback</span>
+                            <span class="mdc-tab__text-label">Guess Your Favorite NBA Team</span>
                         </span>
                         <span class="mdc-tab__ripple"></span>
                     </button>
@@ -173,7 +181,8 @@
         </div>
     </div>
     <div id="feedback-content">
-        <h1>Your Feedback</h1>
+        <h1 id="fav-team">Your Favorite NBA Team Is... The</h1>
+        <p id="fav-text">We were able to make this guess by receiving your permission to access your geolocation. We're assuming that your favorite NBA team is located where you're currently at, which is </p>
     </div>
 
     <!-- code to handle changing the screens -->
@@ -233,5 +242,54 @@
         })
     </script>
     <script src="player_compare.js"></script>
+    <script>
+        let nbaTeamsByState = {
+            "Arizona": "Phoenix Suns",
+            "California": "Los Angeles Lakers",
+            "Colorado": "Denver Nuggets",
+            "Florida": "Miami Heat",
+            "Georgia": "Atlanta Hawks",
+            "Illinois": "Chicago Bulls",
+            "Indiana": "Indiana Pacers",
+            "Louisiana": "New Orleans Pelicans",
+            "Massachusetts": "Boston Celtics",
+            "Michigan": "Detroit Pistons",
+            "Minnesota": "Minnesota Timberwolves",
+            "New York": "New York Knicks",
+            "North Carolina": "Charlotte Hornets",
+            "Ohio": "Cleveland Cavaliers",
+            "Oklahoma": "Oklahoma City Thunder",
+            "Oregon": "Portland Trail Blazers",
+            "Pennsylvania": "Philadelphia 76ers",
+            "Tennessee": "Memphis Grizzlies",
+            "Texas": "Dallas Mavericks",
+            "Utah": "Utah Jazz",
+            "Wisconsin": "Milwaukee Bucks",
+            "Washington DC": "Washington Wizards"
+        }
+
+        // set the map marker to the user's location
+        navigator.geolocation.getCurrentPosition((position) => {
+            const pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude,
+            }
+
+            fetch(`https://us1.locationiq.com/v1/reverse.php?key=pk.acc54479eabfe57fe1cbc269c0efc141&lat=${pos.lat}&lon=${pos.lng}&format=json`)
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data.address.state, nbaTeamsByState[data.address.state])
+
+                    const favTeamDiv = document.querySelector("#fav-team")
+                    const favTextDiv = document.querySelector("#fav-text")
+                    if (nbaTeamsByState[data.address.state]) {
+                        favTeamDiv.innerHTML += ` ${nbaTeamsByState[data.address.state]}`
+                        favTextDiv.innerHTML += ` ${data.address.state}.`
+                    }
+                    else
+                        favTeamDiv.innerHTML += "We couldn't guess your favorite team :("
+                })
+        }, console.error)
+    </script>
 </body>
 </html>
