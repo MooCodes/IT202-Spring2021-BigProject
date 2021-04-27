@@ -20,6 +20,7 @@
             display: none;
         }
         #compare-content {
+            text-align: center;
             display: block;
         }
         #feedback-content {
@@ -34,12 +35,31 @@
             color: #6200EE
         }
         #compare-button {
-            width: 100%;
+            width: 90%;
         }
         .two-inputs {
-            display: block;
+            display: inline;
             margin: 0 auto;
-            width: 250px;
+        }
+        .mdc-card {
+            margin-top: 50px;
+        }
+        #left-card-name, #right-card-name {
+            color: #6200EE;
+            margin: 10px;
+            font-weight: bold;
+            text-align: left;
+        }
+        #player-cards {
+            display: none;
+            margin: 0 auto;
+            margin-bottom: 30px;
+            width: 90%;
+        }
+        #left-stats, #right-stats {
+            color: #6200EE;
+            font-weight: bold;
+            margin: 5px;
         }
     </style>
 </head>
@@ -86,23 +106,23 @@
         <h1>About Us</h1>
     </div>
     <div id="compare-content">
-        <h1>Compare NBA Players</h1>
+        <h1>Compare NBA Players Stats</h1>
     
         <div class="mdc-layout-grid">
             <div class="mdc-layout-grid__inner">
                 <div class="mdc-layout-grid__cell">
-                    <h2>Search First NBA Player</h2>
+                    <h2>Enter NBA Player Name</h2>
                     <div class="two-inputs">
                         <label id="left-player-first" class="mdc-text-field mdc-text-field--filled">
                             <span class="mdc-text-field__ripple"></span>
                             <span class="mdc-floating-label" id="my-label-id">First Name</span>
-                            <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+                            <input id="left-first-name" class="mdc-text-field__input" type="text" aria-labelledby="my-label-id" value="Lebron">
                             <span class="mdc-line-ripple"></span>
                         </label>
                         <label id="left-player-last" class="mdc-text-field mdc-text-field--filled">
                             <span class="mdc-text-field__ripple"></span>
                             <span class="mdc-floating-label" id="my-label-id">Last Name</span>
-                            <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+                            <input id="left-last-name" class="mdc-text-field__input" type="text" aria-labelledby="my-label-id" value="James">
                             <span class="mdc-line-ripple"></span>
                         </label>
                     </div>
@@ -113,20 +133,38 @@
                     </button>
 
                     <!--player comparison stats-->
+                    <div id="player-cards">
+                        <div class="mdc-card">
+                            <div id="left-card" class="my-card__media mdc-card__media mdc-card__media--16-9">
+                                <div id="left-card-name" class="mdc-card__media-content"></div>
+                                <div class="my-card__media mdc-card__media mdc-card__media--16-9">
+                                    <div id="left-stats" class="mdc-card__media-content"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mdc-card">
+                            <div id="right-card" class="my-card__media mdc-card__media mdc-card__media--16-9">
+                                <div id="right-card-name" class="mdc-card__media-content"></div>
+                                <div class="my-card__media mdc-card__media mdc-card__media--16-9">
+                                    <div id="right-stats" class="mdc-card__media-content"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="mdc-layout-grid__cell">
-                    <h2>Search Second NBA Player</h2>
+                    <h2>Enter NBA Player Name</h2>
                     <div class="two-inputs">
                         <label id="right-player-first" class="mdc-text-field mdc-text-field--filled">
                             <span class="mdc-text-field__ripple"></span>
                             <span class="mdc-floating-label" id="my-label-id">First Name</span>
-                            <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+                            <input id="right-first-name" class="mdc-text-field__input" type="text" aria-labelledby="my-label-id" value="Stephen">
                             <span class="mdc-line-ripple"></span>
                         </label>
                         <label id="right-player-last" class="mdc-text-field mdc-text-field--filled">
                             <span class="mdc-text-field__ripple"></span>
                             <span class="mdc-floating-label" id="my-label-id">Last Name</span>
-                            <input class="mdc-text-field__input" type="text" aria-labelledby="my-label-id">
+                            <input id="right-last-name" class="mdc-text-field__input" type="text" aria-labelledby="my-label-id" value="Curry">
                             <span class="mdc-line-ripple"></span>
                         </label>
                     </div>
