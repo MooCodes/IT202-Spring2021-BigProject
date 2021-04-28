@@ -104,6 +104,8 @@ const handlePlayerData = (players) => {
 
         addReq = objectStore.add(`${rightFirstName.value} ${rightLastName.value}`)
 
+        updateRecentSearches(db)
+
     } else {
         // did not find players
         // maybe display some error message

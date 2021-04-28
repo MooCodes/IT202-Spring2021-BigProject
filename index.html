@@ -115,69 +115,79 @@
     </div>
     <div id="compare-content">
         <h1>Compare 2021 NBA Players Stats</h1>
-    
-        <div class="mdc-layout-grid">
-            <div class="mdc-layout-grid__inner">
-                <div class="mdc-layout-grid__cell">
-                    <h2>Enter NBA Player Name</h2>
-                    <div class="two-inputs">
-                        <label id="left-player-first" class="mdc-text-field mdc-text-field--filled">
-                            <span class="mdc-text-field__ripple"></span>
-                            <span class="mdc-floating-label" id="my-label-id">First Name</span>
-                            <input id="left-first-name" class="mdc-text-field__input" type="text" aria-labelledby="my-label-id" value="Lebron">
-                            <span class="mdc-line-ripple"></span>
-                        </label>
-                        <label id="left-player-last" class="mdc-text-field mdc-text-field--filled">
-                            <span class="mdc-text-field__ripple"></span>
-                            <span class="mdc-floating-label" id="my-label-id">Last Name</span>
-                            <input id="left-last-name" class="mdc-text-field__input" type="text" aria-labelledby="my-label-id" value="James">
-                            <span class="mdc-line-ripple"></span>
-                        </label>
+        <div id="top-half">
+            <div class="mdc-layout-grid">
+                <div class="mdc-layout-grid__inner">
+                    <div class="mdc-layout-grid__cell">
+                        <h2>Enter NBA Player Name</h2>
+                        <div class="two-inputs">
+                            <label id="left-player-first" class="mdc-text-field mdc-text-field--filled">
+                                <span class="mdc-text-field__ripple"></span>
+                                <span class="mdc-floating-label" id="my-label-id">First Name</span>
+                                <input id="left-first-name" class="mdc-text-field__input" type="text" aria-labelledby="my-label-id"
+                                    value="Lebron">
+                                <span class="mdc-line-ripple"></span>
+                            </label>
+                            <label id="left-player-last" class="mdc-text-field mdc-text-field--filled">
+                                <span class="mdc-text-field__ripple"></span>
+                                <span class="mdc-floating-label" id="my-label-id">Last Name</span>
+                                <input id="left-last-name" class="mdc-text-field__input" type="text" aria-labelledby="my-label-id"
+                                    value="James">
+                                <span class="mdc-line-ripple"></span>
+                            </label>
+                        </div>
                     </div>
-                </div>
-                <div class="mdc-layout-grid__cell">
-                    <button id="compare-button" class="mdc-button mdc-button--raised">
-                        <span class="mdc-button__label">Compare</span>
-                    </button>
-
-                    <!--player comparison stats-->
-                    <div id="player-cards">
-                        <div class="mdc-card">
-                            <div id="left-card" class="my-card__media mdc-card__media mdc-card__media--16-9">
-                                <div id="left-card-name" class="mdc-card__media-content"></div>
-                                <div class="my-card__media mdc-card__media mdc-card__media--16-9">
-                                    <div id="left-stats" class="mdc-card__media-content"></div>
+                    <div class="mdc-layout-grid__cell">
+                        <button id="compare-button" class="mdc-button mdc-button--raised">
+                            <span class="mdc-button__label">Compare</span>
+                        </button>
+            
+                        <!--player comparison stats-->
+                        <div id="player-cards">
+                            <div class="mdc-card">
+                                <div id="left-card" class="my-card__media mdc-card__media mdc-card__media--16-9">
+                                    <div id="left-card-name" class="mdc-card__media-content"></div>
+                                    <div class="my-card__media mdc-card__media mdc-card__media--16-9">
+                                        <div id="left-stats" class="mdc-card__media-content"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mdc-card">
+                                <div id="right-card" class="my-card__media mdc-card__media mdc-card__media--16-9">
+                                    <div id="right-card-name" class="mdc-card__media-content"></div>
+                                    <div class="my-card__media mdc-card__media mdc-card__media--16-9">
+                                        <div id="right-stats" class="mdc-card__media-content"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="mdc-card">
-                            <div id="right-card" class="my-card__media mdc-card__media mdc-card__media--16-9">
-                                <div id="right-card-name" class="mdc-card__media-content"></div>
-                                <div class="my-card__media mdc-card__media mdc-card__media--16-9">
-                                    <div id="right-stats" class="mdc-card__media-content"></div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                </div>
-                <div class="mdc-layout-grid__cell">
-                    <h2>Enter NBA Player Name</h2>
-                    <div class="two-inputs">
-                        <label id="right-player-first" class="mdc-text-field mdc-text-field--filled">
-                            <span class="mdc-text-field__ripple"></span>
-                            <span class="mdc-floating-label" id="my-label-id">First Name</span>
-                            <input id="right-first-name" class="mdc-text-field__input" type="text" aria-labelledby="my-label-id" value="Stephen">
-                            <span class="mdc-line-ripple"></span>
-                        </label>
-                        <label id="right-player-last" class="mdc-text-field mdc-text-field--filled">
-                            <span class="mdc-text-field__ripple"></span>
-                            <span class="mdc-floating-label" id="my-label-id">Last Name</span>
-                            <input id="right-last-name" class="mdc-text-field__input" type="text" aria-labelledby="my-label-id" value="Curry">
-                            <span class="mdc-line-ripple"></span>
-                        </label>
+                    <div class="mdc-layout-grid__cell">
+                        <h2>Enter NBA Player Name</h2>
+                        <div class="two-inputs">
+                            <label id="right-player-first" class="mdc-text-field mdc-text-field--filled">
+                                <span class="mdc-text-field__ripple"></span>
+                                <span class="mdc-floating-label" id="my-label-id">First Name</span>
+                                <input id="right-first-name" class="mdc-text-field__input" type="text" aria-labelledby="my-label-id"
+                                    value="Stephen">
+                                <span class="mdc-line-ripple"></span>
+                            </label>
+                            <label id="right-player-last" class="mdc-text-field mdc-text-field--filled">
+                                <span class="mdc-text-field__ripple"></span>
+                                <span class="mdc-floating-label" id="my-label-id">Last Name</span>
+                                <input id="right-last-name" class="mdc-text-field__input" type="text" aria-labelledby="my-label-id"
+                                    value="Curry">
+                                <span class="mdc-line-ripple"></span>
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div id="bottom-half">
+            <h2>Recently Searched</h2>
+            <ul id="searchList" style="margin: 0 auto; width: 50%; text-align: center;" class="mdc-list">
+            </ul>
         </div>
     </div>
     <div id="feedback-content">
@@ -291,6 +301,42 @@
                         favTeamDiv.innerHTML += "We couldn't guess your favorite team :("
                 })
         }, console.error)
+    </script>
+    <!--code for loading the recent searches from DB-->
+    <script>
+        setTimeout(() => {
+            let t = db.transaction(['playerSearches'], 'readonly')
+            objectStore = t.objectStore('playerSearches')
+
+            const searchList = document.querySelector('#searchList')
+
+            objectStore.openCursor().onsuccess = (e) => {
+                let cursor = e.target.result
+                if (cursor) {
+
+                    const li = document.createElement('li')
+                    li.classList.add("mdc-list-item")
+                    const firstSpan = document.createElement('span')
+                    firstSpan.classList.add("mdc-list-item__ripple")
+                    const secSpan = document.createElement('span')
+                    secSpan.classList.add("mdc-list-item__text")
+                    secSpan.innerHTML = `${cursor.value}`
+                    li.appendChild(firstSpan)
+                    li.appendChild(secSpan)
+
+                    searchList.appendChild(li)
+
+                    console.log(li)
+
+                    console.log(cursor.value)
+
+                    cursor.continue()
+                } else {
+                    console.log('no more entries!')
+                    console.log(counts)
+                }
+            }
+        }, 100)
     </script>
 </body>
 </html>
