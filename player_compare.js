@@ -37,7 +37,7 @@ const handlePlayerData = (players) => {
     players.forEach(p => {
         if (p.firstName.toLowerCase() == leftFirstName.value.toLowerCase() && 
         p.lastName.toLowerCase() == leftLastName.value.toLowerCase()) {
-            console.log('got a match')
+            console.log('got a match on left')
             count++
             fetch(`https://data.nba.net/data/10s/prod/v1/2020/players/${p.personId}_profile.json`)
                 .then(res => res.json())
@@ -59,7 +59,7 @@ const handlePlayerData = (players) => {
 
         if (p.firstName.toLowerCase() == rightFirstName.value.toLowerCase() &&
             p.lastName.toLowerCase() == rightLastName.value.toLowerCase()) {
-            console.log('got a match')
+            console.log('got a match on right')
             count++
             fetch(`https://data.nba.net/data/10s/prod/v1/2020/players/${p.personId}_profile.json`)
                 .then(res => res.json())
@@ -85,6 +85,25 @@ const handlePlayerData = (players) => {
         // display the data
         const cards = document.querySelector("#player-cards")
         cards.style.display = "block";
+
+        // add to search history DB
+        console.log('adding these players to search history db')
+
+        let transaction = db.transaction(['playerSearches'], 'readwrite')
+        transaction.oncomplete = (e) => {
+            console.log('All Done!')
+        }
+        transaction.onerror = (e) => {
+            // error handling
+        }
+        objectStore = transaction.objectStore('playerSearches')
+        let addReq = objectStore.add(`${leftFirstName.value} ${leftLastName.value}`)
+        addReq.onsuccess = (e) => {
+            console.log('added successfully')
+        }
+
+        addReq = objectStore.add(`${rightFirstName.value} ${rightLastName.value}`)
+
     } else {
         // did not find players
         // maybe display some error message
