@@ -23,7 +23,7 @@ const handleClickButton = () => {
             console.log("error - need to enter something into all inputs")
         else {
             // inputs are non empty, lets try looking up the NBA players
-            fetch('http://data.nba.net/10s/prod/v1/2020/players.json')
+            fetch('https://data.nba.net/10s/prod/v1/2020/players.json')
                 .then(res => res.json())
                 .then(data => handlePlayerData(data.league.standard))
         }
