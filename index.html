@@ -305,7 +305,7 @@
                 })
         }, console.error)
     </script>
-    <!--code for loading the recent searches from DB-->
+    <!--code for loading the recent searches from DB on page load-->
     <script>
         setTimeout(() => {
             let t = db.transaction(['playerSearches'], 'readonly')
@@ -340,6 +340,17 @@
                 }
             }
         }, 100)
+    </script>
+    <!--service worker code-->
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", function () {
+                navigator.serviceWorker
+                    .register("./serviceWorker.js")
+                    .then(res => console.log("service worker registered"))
+                    .catch(err => console.log("service worker not registered", err));
+            });
+        }
     </script>
 </body>
 </html>
