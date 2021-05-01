@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script> <!--js library for email sending-->
     <!-- my styling -->
     <style>
         body {
@@ -146,7 +147,7 @@
                 <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id">
             </label>
 
-            <label style="display: block; margin-top: 25px;" class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea mdc-text-field--no-label">
+            <label id="contact_msg" style="display: block; margin-top: 25px;" class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea mdc-text-field--no-label">
                 <span class="mdc-notched-outline">
                     <span class="mdc-notched-outline__leading"></span>
                     <span class="mdc-notched-outline__trailing"></span>
@@ -156,7 +157,7 @@
                 </span>
             </label>
 
-            <button style="margin-top: 25px;" class="mdc-button mdc-button--raised">
+            <button id="submit_email" style="margin-top: 25px;" class="mdc-button mdc-button--raised">
                 <span class="mdc-button__label">Submit</span>
             </button>
         </div>
@@ -252,6 +253,7 @@
         mdc.textField.MDCTextField.attachTo(document.querySelector('#right-player-last'))
         mdc.textField.MDCTextField.attachTo(document.querySelector('#contact_name'))
         mdc.textField.MDCTextField.attachTo(document.querySelector('#contact_email'))
+        mdc.textField.MDCTextField.attachTo(document.querySelector('#contact_msg'))
 
         // get ref to all the screens
         const homeScreen = document.querySelector('#home-content')
@@ -398,6 +400,13 @@
                     .catch(err => console.log("service worker not registered", err));
             });
         }
+    </script>
+    <!-- code for email sending -->
+    <script>
+        let btn = document.querySelector("#submit_email")
+        btn.addEventListener('click', () => {
+            
+        })
     </script>
 </body>
 </html>
