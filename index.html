@@ -69,6 +69,12 @@
         p {
             text-align: center;
         }
+        #contact {
+            width: 50%;
+            margin: 0 auto;
+            text-align: center;
+            margin-top: 25px;
+        }
     </style>
 </head>
 <body>
@@ -116,6 +122,43 @@
         <p>This app was made for my final project for the IT202 course at UIC. It uses 3 API's, The Offical NBA API, an NBA Player Image API, and a Reverese Geolocation API.</p>
         <p>The app also asks for your permission to use your geolocation to make a guess on who your favorite NBA team is.</p>
         <p>The API's I used for this project are found here: <a href="">https://nba-players.herokuapp.com/</a> <a href="">http://data.nba.net/10s/prod/v1/2020/players.json</a> <a href="">https://locationiq.com/docs</a></p>
+        <h2>If you have any suggestions on how to improve the app, send me an e-mail with any improvements/bugs!</h2>
+        <div id="contact">
+            <label style="margin-bottom: 25px; display: block;" id="contact_name" class="mdc-text-field mdc-text-field--outlined">
+                <span class="mdc-notched-outline">
+                    <span class="mdc-notched-outline__leading"></span>
+                    <span class="mdc-notched-outline__notch">
+                        <span class="mdc-floating-label" id="my-label-id">Your Name</span>
+                    </span>
+                    <span class="mdc-notched-outline__trailing"></span>
+                </span>
+                <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id">
+            </label>
+            <label style="display: block;" id="contact_email" class="mdc-text-field mdc-text-field--outlined">
+                <span class="mdc-notched-outline">
+                    <span class="mdc-notched-outline__leading"></span>
+                    <span class="mdc-notched-outline__notch">
+                        <span class="mdc-floating-label" id="my-label-id">Your Email</span>
+                    </span>
+                    <span class="mdc-notched-outline__trailing"></span>
+                </span>
+                <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id">
+            </label>
+
+            <label style="display: block; margin-top: 25px;" class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea mdc-text-field--no-label">
+                <span class="mdc-notched-outline">
+                    <span class="mdc-notched-outline__leading"></span>
+                    <span class="mdc-notched-outline__trailing"></span>
+                </span>
+                <span class="mdc-text-field__resizer">
+                    <textarea class="mdc-text-field__input" rows="8" cols="40" aria-label="Label"></textarea>
+                </span>
+            </label>
+
+            <button style="margin-top: 25px;" class="mdc-button mdc-button--raised">
+                <span class="mdc-button__label">Submit</span>
+            </button>
+        </div>
     </div>
     <div id="compare-content">
         <h1>Compare 2021 NBA Players Stats</h1>
@@ -206,6 +249,8 @@
         mdc.textField.MDCTextField.attachTo(document.querySelector('#left-player-last'))
         mdc.textField.MDCTextField.attachTo(document.querySelector('#right-player-first'))
         mdc.textField.MDCTextField.attachTo(document.querySelector('#right-player-last'))
+        mdc.textField.MDCTextField.attachTo(document.querySelector('#contact_name'))
+        mdc.textField.MDCTextField.attachTo(document.querySelector('#contact_email'))
 
         // get ref to all the screens
         const homeScreen = document.querySelector('#home-content')
