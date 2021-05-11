@@ -242,7 +242,20 @@
     <div id="feedback-content">
         <h1 id="fav-team">Your Favorite NBA Team Is... The</h1>
         <p id="fav-text">We were able to make this guess by receiving your permission to access your geolocation. We're assuming that your favorite NBA team is located where you're currently at, which is </p>
+        <div id="map"></div>
     </div>
+
+    <script>
+        let map;
+
+            function initMap() {
+                map = new google.maps.Map(document.getElementById("map"), {
+                    center: { lat: -34.397, lng: 150.644 },
+                    zoom: 8,
+                });
+            }
+    </script>
+
 
     <!-- code to handle changing the screens -->
     <script>
@@ -352,6 +365,15 @@
                     else
                         favTeamDiv.innerHTML += "We couldn't guess your favorite team :("
                 })
+            
+            let map;
+
+            function initMap() {
+                map = new google.maps.Map(document.getElementById("map"), {
+                    center: { lat: lat, lng: lng },
+                    zoom: 8,
+                });
+            }
         }, console.error)
     </script>
     <!--code for loading the recent searches from DB on page load-->
@@ -408,5 +430,7 @@
             
         })
     </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMf6h23O0CIJYMzVrzSjNU90lf33eIOFo&callback=initMap&libraries=&v=weekly"
+        async></script>
 </body>
 </html>
